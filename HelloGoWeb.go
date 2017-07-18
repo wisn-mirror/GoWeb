@@ -4,14 +4,13 @@ import(
 	"log"
 	"net/http"
 )
-func main() {
-	http.HandleFunc("/",helloHttp)
+func HelloGoWebHttp() {
+	http.HandleFunc("/",HelloHttp)
 	error := http.ListenAndServe(":8000", nil)
 	if error!=nil{
 		log.Fatal(error)
 	}
 }
-func helloHttp( responseWriter http.ResponseWriter,request *http.Request){
+func HelloHttp( responseWriter http.ResponseWriter,request *http.Request){
 	io.WriteString(responseWriter,"hello go web ! 		-wisn")
-
 }
